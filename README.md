@@ -48,3 +48,23 @@ cat test.target | java edu.stanford.nlp.process.PTBTokenizer -ioFileList -preser
 files2rouge test.hypo.tokenized test.hypo.target
 # Expected output: (ROUGE-2 Average_F: 0.21238)
 ```
+
+### On CNN-DM
+```
+---------------------------------------------
+1 ROUGE-1 Average_R: 0.49267 (95%-conf.int. 0.49013 - 0.49522)
+1 ROUGE-1 Average_P: 0.39364 (95%-conf.int. 0.39130 - 0.39602)
+1 ROUGE-1 Average_F: 0.42700 (95%-conf.int. 0.42484 - 0.42915)
+---------------------------------------------
+1 ROUGE-2 Average_R: 0.22906 (95%-conf.int. 0.22647 - 0.23171)
+1 ROUGE-2 Average_P: 0.18330 (95%-conf.int. 0.18113 - 0.18558)
+1 ROUGE-2 Average_F: 0.19849 (95%-conf.int. 0.19621 - 0.20081)
+---------------------------------------------
+1 ROUGE-L Average_R: 0.45644 (95%-conf.int. 0.45389 - 0.45904)
+1 ROUGE-L Average_P: 0.36492 (95%-conf.int. 0.36261 - 0.36724)
+1 ROUGE-L Average_F: 0.39573 (95%-conf.int. 0.39361 - 0.39790)
+```
+
+* Trained using Bart.Base for about 40k updates.
+* This performance is comparable to `BERTSUMEXTABS (Liu & Lapata, 2019)`: `42.13 19.60 39.18`
+* Fairseq performance (on Bart.Large): `44.16 21.28 40.90`
